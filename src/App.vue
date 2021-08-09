@@ -1,20 +1,28 @@
 <template>
-<div>
-<Header></Header>
-<Footer></Footer>
-</div>
+  <div>
+    <Header></Header>
+    <router-view></router-view>
+    <!-- <Footer v-if="$route.path === '/home' || $route.path === '/search'"></Footer> -->
+    <Footer v-if="!$route.meta.isHide"></Footer>
+  </div>
 </template>
 
 <script>
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-  export default {
-    name:"",
-    components:{
-      Header,
-      Footer
-    }
-  }
+import {reqCategoryList} from '@/api'
+
+export default {
+  name: '',
+  components:{
+    Header,
+    Footer
+  },
+  // mounted(){
+    // 只是测试接口函数能否使用
+  //   reqCategoryList()
+  // }
+}
 </script>
 
 <style lang="less" scoped>
